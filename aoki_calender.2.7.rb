@@ -82,6 +82,6 @@ class Calender
 end
 
 #----------
-p " 西暦1873年以降の年を入力して、そのあと月を入れてね"
+p " 西暦1583年以降の年を入力して、そのあと月を入れてね"
 calender = Calender.new(gets.to_i , gets.to_i)
 calender.puts_calender 

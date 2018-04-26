@@ -33,7 +33,7 @@ class Calender
       month_temp = @month
     end
     
-    zeller_temp = ((year_temp + year_temp / 4) + (year_temp / 400) - #公式
+    zeller_temp = ((year_temp + year_temp / 4) + (year_temp / 400) - #ツェラー
                   (year_temp / 100)) + (month_temp * 13 + 8) / 5
     @zeller_day = ((zeller_temp + 1.00) % 7).floor
   end
@@ -55,8 +55,8 @@ class Calender
 
     counter = 0 #空白の入力と、カレンダーの形にするために使用する
     counter = counter + @zeller_day 
-    counter.times do #1日より前の空白を埋める、ツェラーで使った変数を代入済み
-      print ("    ") #始まりの曜日のナンバー(例:日曜=0)＝埋めるマス数
+    counter.times do    #1日より前の空白を埋める
+      print ("    ")    #始まりの曜日のナンバー(例:日曜=0)＝埋めるマス数
     end
     
     31.times do |print_day| #月の日数の最大値＝31回繰り返しに変更
@@ -70,12 +70,12 @@ class Calender
       break if Month_30.include?(@month) && counter == 30 + @zeller_day
       #break if Month_31.include?(@month) && counter == 31 + @zeller_day
       #月・入力回数の場合分けと出力を合体させた
-      #最大31回繰り返しに変えたため、31.include?が不要になった。コメントアウト
+      #最大31回繰り返しに変えたため、･･･31.include?が不要になった。コメントアウト
       #｢入力された月の最終日はx日」という判定の変数も配列もなくなった
     end
 
     print "\n" if counter >= 28 + @zeller_day && counter % 7 != 0 
-    #月の最終日が土曜だった場合、意味のない空白の改行列が入るのでその防止策
+    #月の最終日が土曜だった場合、空白の列が入るのでその防止策
 
     puts "------------------------------------"
   end
